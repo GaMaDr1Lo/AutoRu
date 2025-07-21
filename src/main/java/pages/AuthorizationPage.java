@@ -1,36 +1,54 @@
 package pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class AuthorizationPage {
-//    @FindBy(xpath = "//span[@id='autoru']")
-    @FindBy(xpath = "//div [contains (@class, 'Button2__content-eyTVN')]")
+    @FindBy(xpath = "//span[@id='autoru']")
+    private WebElement autoRuLoginButton;
+
+    @FindBy(xpath = "//div [contains (@class, 'Button2__content')]")
     private WebElement yandexLoginButton;
-//    @FindBy(xpath = "//input[@name='login']")
-    @FindBy(xpath = "//input[@type='text']")
-    private WebElement yandexLoginInput;
-//    @FindBy(xpath = "//button [@type='submit']")
-    @FindBy(xpath = "//button[@id='passp:sign-in']")
-    private WebElement submitButton;
-    @FindBy(xpath = "//input[@id='passp-field-passwd']")
-    private WebElement yandexPasswordInput;
 
+    @FindBy(xpath = "//input[@name='login']")
+    private WebElement autoRuLoginInput;
 
-    public void openAuthorizationAutoRu() {
+    @FindBy(xpath = "//button [@type='submit']")
+    private WebElement getSubmitButtonAutoRu;
+
+    @FindBy(xpath = "//div [@class='Input2__error-_6b_n']")
+    private WebElement validationMessageFromAutoRu;
+
+    @FindBy(xpath = "//div [contains (@class, 'AuthFormCodeInput__text')]")
+    private WebElement emailCodeConfirm;
+
+    public AuthorizationPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+    }
+
+    public void openAuthorizationByYandex() {
         yandexLoginButton.isDisplayed();
         yandexLoginButton.click();
     }
 
-    public void setLogin(String login) {
-        yandexLoginInput.isDisplayed();
-        yandexLoginInput.sendKeys(login);
-        submitButton.click();
-    }
-    public void setPassword(String password){
-        yandexPasswordInput.isDisplayed();
-        yandexPasswordInput.sendKeys(password);
-        submitButton.click();
+    public String getValidationMessageAutoRU() {
+        return validationMessageFromAutoRu.getText();
     }
 
+    public void openAuthorizationByAutoRu() {
+        autoRuLoginButton.isDisplayed();
+        autoRuLoginButton.click();
+    }
+
+    public void setLoginAutoRu(String login) {
+        autoRuLoginInput.isDisplayed();
+        autoRuLoginInput.sendKeys(login);
+        getSubmitButtonAutoRu.click();
+    }
+
+    public void checkCodeConfirm() {
+        emailCodeConfirm.isDisplayed();
+    }
 }

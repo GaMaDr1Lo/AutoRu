@@ -6,7 +6,7 @@ import setup.ProjectConfig;
 import java.time.Duration;
 
 public class BaseTest {
-    private WebDriver driver;
+    public WebDriver driver;
     public static final ProjectConfig config = ConfigFactory.create(ProjectConfig.class);
 
     public void openBrowser() {
