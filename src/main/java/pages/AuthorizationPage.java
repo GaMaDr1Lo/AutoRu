@@ -32,4 +32,5 @@ public class AuthorizationPage {
         yandexPasswordInput.sendKeys(password);
         submitButton.click();
     }
+
 }
