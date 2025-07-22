@@ -20,20 +20,21 @@ public class AuthorizationByAutoRuTest extends BaseTest {
     @Test
     public void testLogin() {
         MainPage mainPage = new MainPage(driver);
-        AuthorizationPage authorizationPage = new AuthorizationPage(driver);
 
         mainPage.openAuthorizationPage();
+        AuthorizationPage authorizationPage = new AuthorizationPage(driver);
         authorizationPage.openAuthorizationByAutoRu();
         authorizationPage.setLoginAutoRu(config.login());
         authorizationPage.checkCodeConfirm();
+        Assert.assertEquals(());
     }
 
     @Test
     public void testIncorrectLoginNegative() {
         MainPage mainPage = new MainPage(driver);
-        AuthorizationPage authorizationPage = new AuthorizationPage(driver);
 
         mainPage.openAuthorizationPage();
+        AuthorizationPage authorizationPage = new AuthorizationPage(driver);
         authorizationPage.openAuthorizationByAutoRu();
         authorizationPage.setLoginAutoRu("TestNegative");
         String errorMessage = authorizationPage.getValidationMessageAutoRU();

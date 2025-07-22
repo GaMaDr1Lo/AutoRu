@@ -1,6 +1,8 @@
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import setup.ProjectConfig;
 
 import java.time.Duration;
@@ -8,6 +10,8 @@ import java.time.Duration;
 public class BaseTest {
     public WebDriver driver;
     public static final ProjectConfig config = ConfigFactory.create(ProjectConfig.class);
+@BeforeMethod
+@AfterMethod
 
     public void openBrowser() {
         driver = new ChromeDriver();
