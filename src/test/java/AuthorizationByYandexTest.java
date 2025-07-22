@@ -8,23 +8,12 @@ import pages.YandexPassportAuthorizationPage;
 
 public class AuthorizationByYandexTest extends BaseTest {
 
-    @BeforeMethod
-    public void setup() {
-        openBrowser();
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        closeBrowser();
-    }
-
     @Test
     public void testLogin() {
         MainPage mainPage = new MainPage(driver);
+        mainPage.openAuthorizationPage();
         AuthorizationPage authorizationPage = new AuthorizationPage(driver);
         YandexPassportAuthorizationPage yandexPassport = new YandexPassportAuthorizationPage(driver);
-
-        mainPage.openAuthorizationPage();
         authorizationPage.openAuthorizationByYandex();
         yandexPassport.setLogin(config.login());
         yandexPassport.setPassword(config.password());
@@ -34,10 +23,9 @@ public class AuthorizationByYandexTest extends BaseTest {
     @Test
     public void testIncorrectLoginNegative() {
         MainPage mainPage = new MainPage(driver);
+        mainPage.openAuthorizationPage();
         AuthorizationPage authorizationPage = new AuthorizationPage(driver);
         YandexPassportAuthorizationPage yandexPassport = new YandexPassportAuthorizationPage(driver);
-
-        mainPage.openAuthorizationPage();
         authorizationPage.openAuthorizationByYandex();
         yandexPassport.setLogin("123");
         String errorMessage = yandexPassport.getValidationMessage();
@@ -49,10 +37,9 @@ public class AuthorizationByYandexTest extends BaseTest {
     @Test
     public void testEmptyLoginNegative() {
         MainPage mainPage = new MainPage(driver);
+        mainPage.openAuthorizationPage();
         AuthorizationPage authorizationPage = new AuthorizationPage(driver);
         YandexPassportAuthorizationPage yandexPassport = new YandexPassportAuthorizationPage(driver);
-
-        mainPage.openAuthorizationPage();
         authorizationPage.openAuthorizationByYandex();
         yandexPassport.setLogin("");
         String errorMessage = yandexPassport.getValidationMessage();

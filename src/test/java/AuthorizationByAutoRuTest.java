@@ -7,20 +7,9 @@ import pages.MainPage;
 
 public class AuthorizationByAutoRuTest extends BaseTest {
 
-    @BeforeMethod
-    public void setup() {
-        openBrowser();
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        closeBrowser();
-    }
-
     @Test
     public void testLogin() {
         MainPage mainPage = new MainPage(driver);
-
         mainPage.openAuthorizationPage();
         AuthorizationPage authorizationPage = new AuthorizationPage(driver);
         authorizationPage.openAuthorizationByAutoRu();

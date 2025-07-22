@@ -10,14 +10,22 @@ import java.time.Duration;
 public class BaseTest {
     public WebDriver driver;
     public static final ProjectConfig config = ConfigFactory.create(ProjectConfig.class);
-@BeforeMethod
-@AfterMethod
+
+    @BeforeMethod
+    public void setup() {
+        openBrowser();
+    }
 
     public void openBrowser() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         driver.get(config.url());
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        closeBrowser();
     }
 
     public void closeBrowser() {
