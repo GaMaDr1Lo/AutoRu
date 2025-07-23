@@ -48,7 +48,7 @@ public class AuthorizationPage {
         getSubmitButtonAutoRu.click();
     }
 
-    public void checkCodeConfirm() {
-        emailCodeConfirm.isDisplayed();
+    public boolean isCodeConfirmDisplayed() {
+        return emailCodeConfirm.isDisplayed();
     }
 }

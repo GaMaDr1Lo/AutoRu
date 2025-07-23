@@ -20,7 +20,7 @@ public class MainPage {
         loginButton.click();
     }
 
-    public void checkLogin() {
-        avatarProfile.isDisplayed();
+    public boolean isAvatarDisplayed() {
+        return avatarProfile.isDisplayed();
     }
 }

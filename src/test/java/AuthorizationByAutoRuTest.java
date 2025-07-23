@@ -1,6 +1,4 @@
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.AuthorizationPage;
 import pages.MainPage;
@@ -14,8 +12,9 @@ public class AuthorizationByAutoRuTest extends BaseTest {
         AuthorizationPage authorizationPage = new AuthorizationPage(driver);
         authorizationPage.openAuthorizationByAutoRu();
         authorizationPage.setLoginAutoRu(config.login());
-        authorizationPage.checkCodeConfirm();
-        Assert.assertEquals(());
+        boolean codeConfirmDisplayed = authorizationPage.isCodeConfirmDisplayed();
+
+        Assert.assertTrue(codeConfirmDisplayed, "Ошибка авторизации");
     }
 
     @Test
