@@ -1,8 +1,7 @@
+package pages;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.AuthorizationPage;
-import pages.MainPage;
-import pages.YandexPassportAuthorizationPage;
 
 public class AuthorizationByYandexTest extends BaseTest {
 

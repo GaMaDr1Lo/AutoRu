@@ -1,9 +1,7 @@
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+package pages;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.AuthorizationPage;
-import pages.MainPage;
 
 public class AuthorizationByAutoRuTest extends BaseTest {
 
