@@ -1,3 +1,5 @@
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AuthorizationPage;
@@ -20,7 +22,6 @@ public class AuthorizationByAutoRuTest extends BaseTest {
     @Test
     public void testIncorrectLoginNegative() {
         MainPage mainPage = new MainPage(driver);
-
         mainPage.openAuthorizationPage();
         AuthorizationPage authorizationPage = new AuthorizationPage(driver);
         authorizationPage.openAuthorizationByAutoRu();
